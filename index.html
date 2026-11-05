@@ -27,30 +27,37 @@ a{color:var(--accent)}
 .social a:hover{border-color:var(--accent)}
 .social svg{width:18px;height:18px;fill:currentColor;flex:none}
 h2{margin:48px 0 16px;font-size:.95rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
-.featured{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.featured-top{display:flex;gap:24px;align-items:center;padding:24px}
-.icon-tile{width:132px;height:132px;flex:none;border-radius:28px;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,var(--accent2),transparent 60%),linear-gradient(135deg,var(--accent),#3b3ba8)}
-.icon-tile img{width:92px;height:92px;border-radius:22px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
-.featured h3{margin:0 0 4px;font-size:1.35rem}
-.featured p{margin:0 0 14px;color:var(--muted)}
-.badge img{height:58px;margin:-9px 0 -9px -10px;display:block}
+.app{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.app + .app{margin-top:20px}
+.app-top{display:flex;gap:24px;align-items:center;padding:24px}
+.icon-tile{width:132px;height:132px;flex:none;border-radius:28px;display:grid;place-items:center}
+.tile-ace{background:radial-gradient(circle at 30% 25%,var(--accent2),transparent 60%),linear-gradient(135deg,var(--accent),#3b3ba8)}
+.tile-tc{background:linear-gradient(135deg,#2f6bff 50%,#ff2d4d 50%)}
+.tile-ic{background:radial-gradient(circle at 50% 40%,#5fae3c,#10240d 75%)}
+.icon-tile img{width:92px;height:92px;border-radius:22px;box-shadow:0 8px 20px rgba(0,0,0,.35);display:block}
+.app h3{margin:0 0 4px;font-size:1.35rem}
+.app-info p{margin:0 0 14px;color:var(--muted)}
+.get{display:flex;align-items:center;min-height:40px}
+.badge{display:block}
+.badge img{display:block}
+.badge-play img{height:58px;margin:-9px 0 -9px -10px}
+.badge-apple img{height:40px}
+.soon-pill{display:inline-flex;align-items:center;height:40px;padding:0 20px;border-radius:8px;border:1px dashed var(--muted);background:var(--soft);color:var(--text);font-weight:700;letter-spacing:3px;font-size:.95rem}
+.legal{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:12px;font-size:.9rem}
 .shots{display:flex;gap:12px;overflow-x:auto;padding:0 24px 24px;scroll-snap-type:x mandatory}
 .shots img{height:300px;width:auto;border-radius:12px;flex:none;scroll-snap-align:start;border:1px solid var(--line)}
-.soon{margin-top:16px;border:1px dashed var(--line);border-radius:20px;padding:20px 24px;display:flex;gap:18px;align-items:center;background:var(--card)}
-.soon .dots{display:flex;gap:6px;flex:none}
-.soon .dots span{width:18px;height:18px;border-radius:6px;background:var(--soft)}
-.soon .dots span:nth-child(2){background:var(--accent2);opacity:.6;border-radius:50%}
-.soon .dots span:nth-child(3){background:var(--accent);opacity:.5}
-.soon h3{margin:0;font-size:1.05rem}
-.soon p{margin:0;color:var(--muted);font-size:.95rem}
-.contact{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.share{font:inherit;font-size:.95rem;font-weight:600;cursor:pointer;background:var(--accent);color:var(--btn-text);border:0;padding:8px 16px;border-radius:999px}
-footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.contact{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.contact p{margin:0 0 16px;color:var(--muted)}
+.contact-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.mail{display:inline-block;font-weight:600;background:var(--accent);color:var(--btn-text);text-decoration:none;padding:8px 16px;border-radius:999px}
+.share{font:inherit;font-size:.95rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text);border:1px solid var(--line);padding:8px 16px;border-radius:999px}
+.share:hover{border-color:var(--accent)}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
 footer p{margin:4px 0}
 @media (max-width:560px){
-.featured-top{flex-direction:column;text-align:center}
-.badge{display:inline-block}
-.badge img{margin:-9px auto}
+.app-top{flex-direction:column;text-align:center}
+.get,.legal{justify-content:center}
+.badge-play img{margin:-9px auto}
 .shots img{height:260px}
 }
 </style>
@@ -68,36 +75,75 @@ footer p{margin:4px 0}
 </header>
 
 <h2>Our apps</h2>
-<section class="featured">
-<div class="featured-top">
-<div class="icon-tile"><img src="blackjack-icon.png" alt="Blackjack 21 Ace icon"></div>
-<div>
+
+<section class="app" id="blackjack-21-ace">
+<div class="app-top">
+<div class="icon-tile tile-ace"><img src="blackjack-icon.png" alt="Blackjack 21 Ace icon"></div>
+<div class="app-info">
 <h3>Blackjack 21 Ace</h3>
 <p>A card game played with virtual chips only. 18+. No real money and no prizes.</p>
-<a class="badge" href="https://play.google.com/store/apps/details?id=com.rba.royalfelt" target="_blank" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+<div class="get"><a class="badge badge-play" href="https://play.google.com/store/apps/details?id=com.rba.royalfelt" target="_blank" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a></div>
+<div class="legal"><a href="/rba-legal/#privacy">Privacy Policy</a><a href="/rba-legal/#terms">Terms of Use</a><a href="/rba-legal/#credits">Credits</a></div>
 </div>
 </div>
-<div class="shots" aria-label="Screenshots">
+<div class="shots" aria-label="Blackjack 21 Ace screenshots">
 <img src="img/shot-1.jpg" alt="Blackjack table" loading="lazy">
 <img src="img/shot-2.jpg" alt="Strategy practice" loading="lazy">
 <img src="img/shot-3.jpg" alt="Battle pass" loading="lazy">
 <img src="img/shot-4.jpg" alt="Levels and rewards" loading="lazy">
 </div>
 </section>
-<div class="soon">
-<div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
-<div><h3>More on the way</h3><p>New apps and games are in the works.</p></div>
-</div>
 
-<h2>Contact</h2>
-<div class="contact">
-<a href="mailto:roni@rbaapps.com">roni@rbaapps.com</a>
+<section class="app" id="tough-choice">
+<div class="app-top">
+<div class="icon-tile tile-tc"><img src="img/tc-icon.png" alt="Tough Choice icon"></div>
+<div class="app-info">
+<h3>Tough Choice: Would You Rather</h3>
+<p>Two options. One tough choice. See what everyone else picked, and play with friends in a room.</p>
+<div class="get"><a class="badge badge-apple" href="https://apps.apple.com/app/tough-choice-would-you-rather/id6822851923" target="_blank" rel="noopener"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a></div>
+<div class="legal"><a href="/tough-choice-legal/#privacy-en">Privacy Policy</a><a href="/tough-choice-legal/#terms-en">Terms of Use</a></div>
+</div>
+</div>
+<div class="shots" aria-label="Tough Choice screenshots">
+<img src="img/tc-shot-5.jpg" alt="Tough Choice home screen" loading="lazy">
+<img src="img/tc-shot-1.jpg" alt="A would you rather question" loading="lazy">
+<img src="img/tc-shot-2.jpg" alt="How everyone voted" loading="lazy">
+<img src="img/tc-shot-3.jpg" alt="A room with friends" loading="lazy">
+<img src="img/tc-shot-4.jpg" alt="Room results" loading="lazy">
+<img src="img/tc-shot-6.jpg" alt="Question categories" loading="lazy">
+</div>
+</section>
+
+<section class="app" id="infect-city">
+<div class="app-top">
+<div class="icon-tile tile-ic"><img src="img/ic-icon.png" alt="Infect City icon"></div>
+<div class="app-info">
+<h3>Infect City</h3>
+<p>Start as one zombie. Build a horde, take the city and storm the army base.</p>
+<div class="get"><span class="soon-pill">SOON</span></div>
+<div class="legal"><a href="/infect-city-legal/#privacy">Privacy Policy</a><a href="/infect-city-legal/#terms">Terms of Use</a><a href="/infect-city-legal/#credits">Credits</a></div>
+</div>
+</div>
+<div class="shots" aria-label="Infect City screenshots">
+<img src="img/ic-shot-1.jpg" alt="Infect City home screen" loading="lazy">
+<img src="img/ic-shot-2.jpg" alt="Steering a zombie through the city" loading="lazy">
+<img src="img/ic-shot-3.jpg" alt="Choosing a map" loading="lazy">
+<img src="img/ic-shot-4.jpg" alt="Upgrades" loading="lazy">
+<img src="img/ic-shot-5.jpg" alt="Daily bonus" loading="lazy">
+</div>
+</section>
+
+<h2 id="contact">Contact us</h2>
+<section class="contact">
+<p>Questions, feedback or a business inquiry about any of our apps? Write to us.</p>
+<div class="contact-actions">
+<a class="mail" href="mailto:roni@rbaapps.com">roni@rbaapps.com</a>
 <button class="share" id="share" type="button">Share this site</button>
 </div>
+</section>
 
 <footer>
-<p><a href="/rba-legal/">Terms of Use, Privacy Policy and Credits</a></p>
-<p>&copy; 2026 R.B.A. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+<p>&copy; 2026 R.B.A. Google Play and the Google Play logo are trademarks of Google LLC. Apple, the Apple logo and App Store are trademarks of Apple Inc.</p>
 </footer>
 </main>
 <script>
